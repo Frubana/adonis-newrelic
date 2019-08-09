@@ -68,15 +68,20 @@ class NewRelicProvider extends ServiceProvider {
             // We can't match a route for OPTIONS or TRACE request.
             if (!excludeVerbs.includes(request.method())) {
               if (!this.Route) {
-                return;
+                return originalFn.apply(this, args);
               }
 
-              const { route } = this.Route.match(
+              const match = this.Route.match(
                 request.url(),
                 request.method(),
                 request.hostname()
               );
-              const { name: routeName, handler } = route.toJSON();
+
+              if (!match) {
+                return originalFn.apply(this, args);
+              }
+
+              const { name: routeName, handler } = match.route.toJSON();
 
               if (shim.isString(handler)) {
                 const [controller, action] = handler.split(".");
