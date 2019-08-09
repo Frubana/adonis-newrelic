@@ -1,0 +1,30 @@
+{
+  "git": "git@github.com:Frubana/adonis-newrelic.git",
+  "name": "@frubana/adonis-newrelic",
+  "version": "0.0.1",
+  "description": "NewRelic addon for AdonisJs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard src/** providers/** --fix",
+    "pretest": "npm run lint",
+    "test": "japa"
+  },
+  "private": false,
+  "keywords": [
+    "adonisjs",
+    "adonis-framework",
+    "newrelic"
+  ],
+  "author": "@frubana",
+  "license": "",
+  "devDependencies": {
+    "@adonisjs/sink": "^1.0.13",
+    "japa": "^1.0.5",
+    "japa-cli": "^1.0.1",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "newrelic": "^5.11.0"
+  }
+}
