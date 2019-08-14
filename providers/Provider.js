@@ -33,6 +33,11 @@ class NewRelicProvider extends ServiceProvider {
 
   boot () {
     const Helpers = this.app.use('Helpers')
+
+    if (Helpers.isAceCommand()) {
+      return
+    }
+
     const Logger = this.app.use('Logger')
     const Route = this.app.use('Route')
     const newrelic = this.app.use('NewRelic')
