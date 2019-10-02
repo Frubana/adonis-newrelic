@@ -1,4 +1,5 @@
 const path = require('path')
+const newrelic = require('newrelic')
 
 const { resolver, ServiceProvider } = require('@adonisjs/fold')
 const { intersection } = require('lodash')
@@ -25,8 +26,7 @@ function getInstanceMethods (obj, stop) {
 
 class NewRelicProvider extends ServiceProvider {
   register () {
-    this.app.bind('NewRelic', () => {
-      const newrelic = require('newrelic')
+    this.app.singleton('NewRelic', () => {
       return newrelic
     })
   }

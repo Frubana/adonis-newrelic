@@ -2,15 +2,6 @@
 
 ## Setup
 
-Add newrelic in the server load.
-
-```js
-// server.js
-
-// In the end of the file add
-require("newrelic");
-```
-
 Add new relic provider in the top of providers list.
 
 ```js
