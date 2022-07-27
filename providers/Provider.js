@@ -99,7 +99,7 @@ class NewRelicProvider extends ServiceProvider {
             /* Wrap Route's match method. This has to be done here because we still need the raw
              * request object.
              */
-            this.Route.match = shim.recordMiddleware(this.Route.match, {
+            shim.recordMiddleware(this.Route.match, {
               type: shim.ROUTER,
               route: request.url(),
               req () {
